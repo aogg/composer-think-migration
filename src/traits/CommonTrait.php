@@ -43,7 +43,7 @@ trait CommonTrait
 
     public function setName(string $name)
     {
-        return parent::setName('aogg:' . $name);
+        return parent::setName($name . ':aogg');
     }
 
 }
