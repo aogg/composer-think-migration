@@ -6,7 +6,7 @@
 
 namespace aogg\think\migration\extend\command\migrate;
 
-class Create extends \think\migration\command\migrate\Run
+class Create extends \think\migration\command\migrate\Create
 {
     use \aogg\think\migration\extend\traits\MigrateTrait;
 

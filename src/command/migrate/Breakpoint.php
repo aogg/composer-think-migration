@@ -6,7 +6,7 @@
 
 namespace aogg\think\migration\extend\command\migrate;
 
-class Breakpoint extends \think\migration\command\migrate\Run
+class Breakpoint extends \think\migration\command\migrate\Breakpoint
 {
     use \aogg\think\migration\extend\traits\MigrateTrait;
 

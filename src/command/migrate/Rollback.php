@@ -6,7 +6,7 @@
 
 namespace aogg\think\migration\extend\command\migrate;
 
-class Rollback extends \think\migration\command\migrate\Run
+class Rollback extends \think\migration\command\migrate\Rollback
 {
     use \aogg\think\migration\extend\traits\MigrateTrait;
 

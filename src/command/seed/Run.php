@@ -6,7 +6,7 @@
 
 namespace aogg\think\migration\extend\command\seed;
 
-class Run extends \think\migration\command\seed\Create
+class Run extends \think\migration\command\seed\Run
 {
     use \aogg\think\migration\extend\traits\SeedTrait;
 
