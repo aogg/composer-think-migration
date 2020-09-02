@@ -9,14 +9,19 @@ namespace aogg\think\migration\extend;
 
 class RootPath
 {
-    public static $rootPath = 'app/modules/**/';
-
+    public static $rootPath = '';
+    
     /**
      * @param string $rootPath
      */
     public static function setRootPath(string $rootPath)
     {
-        self::$rootPath = $rootPath;
+        static::$rootPath = $rootPath;
+    }
+
+    public static function setModulesRootPath(string $rootPath = 'app/modules/**/')
+    {
+        static::setRootPath($rootPath);
     }
 
     /**
