@@ -1,12 +1,12 @@
 {
-    "name": "aogg/think-migration",
+    "name": "aogg/think-migration-extend",
     "description": "ThinkPHP6扩展  数据库迁移工具",
     "keywords": [
         "thinkphp",
         "migration",
         "phinx"
     ],
-    "homepage": "https://github.com/aogg/composer-think-migration",
+    "homepage": "https://github.com/aogg/composer-think-migration-extend",
     "license": "Apache-2.0",
     "authors": [
         {
@@ -20,7 +20,7 @@
     "autoload": {
         "files": [],
         "psr-4": {
-            "aogg\\think\\migration\\": "src/"
+            "aogg\\think\\migration\\extend\\": "src/"
         }
     }
 }
