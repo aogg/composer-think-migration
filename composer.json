@@ -17,6 +17,13 @@
     "require": {
         "topthink/think-migration": "^3.0.2"
     },
+    "extra": {
+        "think": {
+            "services": [
+                "aogg\\think\\migration\\extend\\Service"
+            ]
+        }
+    },
     "autoload": {
         "files": [],
         "psr-4": {
