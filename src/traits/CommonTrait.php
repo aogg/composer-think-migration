@@ -8,6 +8,7 @@ namespace aogg\think\migration\extend\traits;
 
 /**
  * @mixin \think\console\Command
+ * @mixin \think\migration\Command
  */
 trait CommonTrait
 {
@@ -38,7 +39,7 @@ trait CommonTrait
      */
     public function getRootPath()
     {
-        return $this->rootPath;
+        return $this->rootPath?:app(\aogg\think\migration\extend\RootPath::class)->getRootPath();
     }
 
     public function setName(string $name)
@@ -46,4 +47,11 @@ trait CommonTrait
         return parent::setName($name . ':aogg');
     }
 
+
+    public function getAdapter()
+    {
+        \Phinx\Db\Adapter\AdapterFactory::instance()->registerAdapter('mysql', \aogg\think\migration\extend\Phinx\Db\Adapter\MysqlAdapter::class);
+
+        return parent::getAdapter();
+    }
 }
