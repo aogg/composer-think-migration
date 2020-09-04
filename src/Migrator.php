@@ -8,6 +8,7 @@ namespace aogg\think\migration\extend;
 
 /**
  * @method change() // 自动识别，只支持部分字段
+ * @method \Phinx\Db\Adapter\AdapterInterface|\Phinx\Db\Adapter\TablePrefixAdapter getAdapter()
  */
 class Migrator extends \think\migration\Migrator
 {
@@ -16,5 +17,15 @@ class Migrator extends \think\migration\Migrator
         return new db\Table($tableName, $options, $this->getAdapter());
     }
 
+    /**
+     * 给表名添加前缀
+     *
+     * @param $tableName
+     * @return string
+     */
+    public function getFullTableName($tableName)
+    {
+        return $this->getAdapter()->getAdapterTableName($this->table($tableName)->getName());
+    }
 
 }
