@@ -16,7 +16,7 @@ class RootPath
      */
     public static function setRootPath(string $rootPath)
     {
-        static::$rootPath = $rootPath;
+        static::$rootPath = app()->getRootPath() . $rootPath;
     }
 
     public static function setModulesRootPath(string $rootPath = 'app/modules/**/')
