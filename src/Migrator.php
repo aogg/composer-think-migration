@@ -28,4 +28,14 @@ class Migrator extends \think\migration\Migrator
         return $this->getAdapter()->getAdapterTableName($this->table($tableName)->getName());
     }
 
+    /**
+     * 表前缀
+     *
+     * @return string
+     */
+    public function getTablePrefix()
+    {
+        return $this->getAdapter()->getPrefix();
+    }
+
 }
