@@ -42,6 +42,10 @@ trait CommonTrait
         return $this->rootPath?:app(\aogg\think\migration\extend\RootPath::class)->getRootPath();
     }
 
+    /**
+     * @param string $name
+     * @return $this
+     */
     public function setName(string $name)
     {
         return parent::setName($name . ':aogg');
