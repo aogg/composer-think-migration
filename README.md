@@ -23,6 +23,7 @@ class AppService extends Service
     public function boot()
     {
 
+        // \aogg\think\migration\extend\RootPath::setModulesRootPath($path);
         \aogg\think\migration\extend\RootPath::setModulesRootPath();
 
     }

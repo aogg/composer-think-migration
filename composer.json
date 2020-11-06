@@ -15,6 +15,7 @@
         }
     ],
     "require": {
+        "ext-preg": "*",
         "topthink/think-migration": "^3.0.2"
     },
     "extra": {
