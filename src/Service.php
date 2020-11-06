@@ -37,6 +37,8 @@ class Service extends \think\Service
         $this->commands([
             MigrateCreate::class,
             \aogg\think\migration\extend\command\migrate\TestOne::class,
+            \aogg\think\migration\extend\command\migrate\RunOne::class,
+            \aogg\think\migration\extend\command\migrate\RollbackOne::class,
             MigrateRun::class,
             MigrateRollback::class,
             MigrateBreakpoint::class,

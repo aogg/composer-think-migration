@@ -38,4 +38,40 @@ class Migrator extends \think\migration\Migrator
         return $this->getAdapter()->getPrefix();
     }
 
+    /**
+     * 获取指定表的唯一索引
+     *
+     * @param $tableName
+     * @return array
+     */
+    public function getTableUniqueIndexes($tableName)
+    {
+        $fullTableName = $this->getFullTableName($tableName);
+
+        $indexes = array();
+        $rows = $this->fetchAll(sprintf('SHOW INDEXES FROM `%s`', $fullTableName));
+        foreach ($rows as $row) {
+            if (!isset($row['Non_unique']) || !empty($row['Non_unique'])){
+                continue;
+            }
+
+            // array('type', 'unique', 'name', 'limit')
+            if (!isset($indexes[$row['Key_name']])) {
+                $indexes[$row['Key_name']] = array(
+                    'columns' => array(),
+                    'options' => [],
+                );
+            }
+            $indexes[$row['Key_name']]['columns'][] = strtolower($row['Column_name']);
+
+            // options
+            $indexes[$row['Key_name']]['options']['unique'] = true;
+            if (!empty($row['Sub_part'])) {
+                $indexes[$row['Key_name']]['options']['limit'][strtolower($row['Column_name'])] = $row['Sub_part'];
+            }
+        }
+        return $indexes;
+
+    }
+
 }
