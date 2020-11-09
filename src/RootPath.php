@@ -69,8 +69,8 @@ class RootPath
         $dirPrefix = !empty($dirArr[0])?$dirArr[0]:'';
         $dirSuffix = '/' . ltrim(!empty($dirArr[1])?$dirArr[1]:'', '/\\');
 
+        $arr = array_merge($arr, glob($dirPrefix . $dirSuffix, $globFlags));
         foreach (glob($dirPrefix . '/*', $globFlags) as $file) {
-            $arr += glob($file . $dirSuffix, $globFlags);
             if (!isset($excludeDir[$file]) && is_dir($file)) { // 目录
                 static::globRecursion($file . '/**' . $dirSuffix, $globFlags, $arr);
             }
